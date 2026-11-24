@@ -1,632 +1,555 @@
+<section id="roadmap">
+<div class="eyebrow">Start step by step</div>
+<h2>A student's career roadmap</h2>
+<p class="sub">A flexible guide for school students in India and elsewhere.</p>
+<div class="steps">
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CAREER WORLD</title>
+<div class="step">
+<strong>STEP 01 · EXPLORE</strong>
+<h3>Discover interests</h3>
+<p>Try subjects, hobbies, clubs and projects. Learn about different professions.</p>
+</div>
 
-<style>
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+<div class="step">
+<strong>STEP 02 · BUILD</strong>
+<h3>Strengthen basics</h3>
+<p>Focus on reading, maths, communication, digital skills and problem-solving.</p>
+</div>
 
-body {
-  font-family: Arial, sans-serif;
-  background: #081426;
-  color: white;
-}
+<div class="step">
+<strong>STEP 03 · COMPARE</strong>
+<h3>Check pathways</h3>
+<p>Compare subjects, courses, entrance exams, costs and official eligibility rules.</p>
+</div>
 
-header {
-  background: linear-gradient(120deg,#0759c7,#792de2);
-  padding: 28px 16px;
-  text-align: center;
-}
+<div class="step">
+<strong>STEP 04 · PLAN</strong>
+<h3>Take next steps</h3>
+<p>Speak to trusted adults, make a realistic study plan and review it as you grow.</p>
+</div>
 
-header h1 {
-  font-size: 32px;
-  letter-spacing: 2px;
-}
-
-header p {
-  margin-top: 10px;
-  color: #e0eaff;
-}
-
-nav {
-  background: #102440;
-  padding: 15px;
-  text-align: center;
-}
-
-nav a {
-  color: white;
-  text-decoration: none;
-  margin: 10px;
-  font-weight: bold;
-}
-
-.hero {
-  text-align: center;
-  padding: 45px 15px;
-}
-
-.hero h2 {
-  font-size: 30px;
-  color: #61b5ff;
-}
-
-.hero p {
-  margin: 15px auto;
-  max-width: 600px;
-  color: #c4d4e9;
-  line-height: 1.6;
-}
-
-.search {
-  width: 90%;
-  max-width: 600px;
-  padding: 15px;
-  border-radius: 12px;
-  border: 2px solid #318bff;
-  margin: 20px auto;
-  display: block;
-  font-size: 16px;
-}
-
-.filters {
-  text-align: center;
-  margin: 10px;
-}
-
-button {
-  background: #1677ee;
-  color: white;
-  border: none;
-  padding: 11px 17px;
-  border-radius: 8px;
-  margin: 5px;
-  cursor: pointer;
-}
-
-button:hover {
-  background: #7648ed;
-}
-
-main {
-  padding: 15px;
-}
-
-.section-title {
-  text-align: center;
-  color: #61b5ff;
-  margin: 25px 0;
-}
-
-.careers {
-  display: grid;
-  grid-template-columns: repeat(auto-fit,minmax(230px,1fr));
-  gap: 17px;
-  max-width: 1100px;
-  margin: auto;
-}
-
-.card {
-  background: #142944;
-  border: 1px solid #284769;
-  padding: 20px;
-  border-radius: 14px;
-  transition: 0.2s;
-}
-
-.card:hover {
-  transform: translateY(-5px);
-  border-color: #399cff;
-}
-
-.card .emoji {
-  font-size: 35px;
-}
-
-.card h3 {
-  margin: 12px 0;
-  color: #70baff;
-}
-
-.card p {
-  color: #d0dcec;
-  line-height: 1.5;
-  font-size: 14px;
-}
-
-.details {
-  margin-top: 15px;
-  width: 100%;
-}
-
-#detail {
-  display: none;
-  background: #142944;
-  border: 1px solid #399cff;
-  border-radius: 15px;
-  padding: 23px;
-  max-width: 850px;
-  margin: 30px auto;
-  line-height: 1.8;
-}
-
-#detail h2 {
-  color: #70baff;
-  margin-bottom: 12px;
-}
-
-#detail h3 {
-  color: #70baff;
-  margin-top: 18px;
-}
-
-#detail ul {
-  padding-left: 23px;
-}
-
-#detail p {
-  color: #d0dcec;
-}
-
-footer {
-  text-align: center;
-  background: #102440;
-  padding: 25px;
-  margin-top: 45px;
-  color: #b8cbe1;
-}
-
-.empty {
-  text-align: center;
-  color: #ffb8b8;
-  padding: 25px;
-}
-</style>
-</head>
-
-<body>
-
-<header>
-  <h1>🌍 CAREER WORLD</h1>
-  <p>Explore Every Profession. Discover Your Future.</p>
-</header>
-
-<nav>
-  <a href="#home">Home</a>
-  <a href="#careers">Careers</a>
-  <a href="#about">About</a>
-</nav>
-
-<section class="hero" id="home">
-  <h2>Your Future Starts Here!</h2>
-  <p>
-    Discover professions from India and around the world.
-    Learn about qualifications, skills, salaries and
-    step-by-step career pathways.
-  </p>
-
-  <input
-    class="search"
-    id="search"
-    type="text"
-    placeholder="🔍 Search any profession..."
-    oninput="showCareers()"
-  />
-
-  <div class="filters">
-    <button onclick="filterCareer('All')">All</button>
-    <button onclick="filterCareer('Government')">Government</button>
-    <button onclick="filterCareer('Science')">Science</button>
-    <button onclick="filterCareer('Technology')">Technology</button>
-    <button onclick="filterCareer('Business')">Business</button>
-    <button onclick="filterCareer('Arts')">Arts</button>
-  </div>
+</div>
 </section>
-
-<main id="careers">
-  <h2 class="section-title">🚀 Explore Professions</h2>
-  <div class="careers" id="careerList"></div>
-  <div id="detail"></div>
-</main>
 
 <section id="about">
-  <h2 class="section-title">About CAREER WORLD</h2>
-  <p style="text-align:center;padding:15px;line-height:1.8;color:#c4d4e9">
-    CAREER WORLD is a career exploration platform
-    designed to help students discover their interests
-    and understand different career opportunities.
-  </p>
+<div class="panel">
+<div class="eyebrow">About this project</div>
+<h2>CAREER WORLD</h2>
+<p class="sub">A student-friendly career exploration website designed to make profession information easier to discover. It is an educational guide, not an official recruitment, admissions or salary service.</p>
+<p class="note">For government jobs, university admissions and regulated professions, use the relevant official government, university or professional-body website to confirm the latest rules.</p>
+</div>
 </section>
 
+</main>
+
 <footer>
-  <h3>🌍 CAREER WORLD</h3>
-  <p>Explore Today. Lead Tomorrow.</p>
-  <p>© 2026 CAREER WORLD</p>
+© 2026 CAREER WORLD · Explore wisely. Dream boldly. Build steadily.
 </footer>
 
 <script>
 
-const careers = [
-{
-name:"IAS Officer",
-emoji:"🏛️",
-category:"Government",
-country:"India",
-qualification:"Any recognised bachelor's degree.",
-exam:"UPSC Civil Services Examination.",
-salary:"Pay Level 10 starts at ₹56,100 basic monthly pay.",
-skills:"Leadership, administration, decision-making.",
-steps:[
-"Complete Class 10.",
-"Complete Class 12 in any stream.",
-"Earn a bachelor's degree.",
-"Meet UPSC eligibility requirements.",
-"Prepare for the UPSC Civil Services Examination.",
-"Clear Prelims, Mains and Interview.",
-"Complete training at LBSNAA."
-]
-},
-{
-name:"IPS Officer",
-emoji:"👮",
-category:"Government",
-country:"India",
-qualification:"Bachelor's degree.",
-exam:"UPSC Civil Services Examination.",
-salary:"Pay Level 10 starts at ₹56,100 basic monthly pay.",
-skills:"Leadership, discipline, courage.",
-steps:[
-"Complete Class 10 and 12.",
-"Complete graduation.",
-"Prepare for UPSC.",
-"Clear Prelims.",
-"Clear Mains.",
-"Pass the Interview and meet physical standards.",
-"Complete police training."
-]
-},
-{
-name:"Doctor",
-emoji:"🩺",
-category:"Science",
-country:"Worldwide",
-qualification:"PCB in Class 11 and 12, followed by medical education.",
-exam:"NEET-UG in India.",
-salary:"Varies by country, specialisation and experience.",
-skills:"Communication, science, compassion.",
-steps:[
-"Study Science with Physics, Chemistry and Biology.",
-"Prepare for medical entrance requirements.",
-"Qualify NEET-UG in India.",
-"Complete MBBS.",
-"Complete internship.",
-"Obtain registration and required qualifications.",
-"Specialise if desired."
-]
-},
-{
-name:"Engineer",
-emoji:"⚙️",
-category:"Science",
-country:"Worldwide",
-qualification:"Usually Class 12 with Physics and Mathematics.",
-exam:"JEE or other accepted entrance examinations in India.",
-salary:"Varies by engineering branch and experience.",
-skills:"Mathematics, problem-solving, creativity.",
-steps:[
-"Complete Class 10.",
-"Choose Science with Mathematics.",
-"Study Physics, Chemistry and Mathematics.",
-"Prepare for entrance examinations.",
-"Complete an engineering degree.",
-"Develop practical skills.",
-"Apply for engineering jobs."
-]
-},
-{
-name:"Software Developer",
-emoji:"💻",
-category:"Technology",
-country:"Worldwide",
-qualification:"Computer Science degree or relevant skills.",
-exam:"No single compulsory worldwide examination.",
-salary:"Varies by country, company and experience.",
-skills:"Programming, logic, problem-solving.",
-steps:[
-"Learn computer basics.",
-"Learn Python or JavaScript.",
-"Study programming concepts.",
-"Learn data structures and algorithms.",
-"Build projects.",
-"Create a portfolio.",
-"Apply for developer jobs."
-]
-},
-{
-name:"Scientist",
-emoji:"🔬",
-category:"Science",
-country:"Worldwide",
-qualification:"Relevant science degree; higher research qualifications often needed.",
-exam:"Depends on institution and country.",
-salary:"Depends on research field and employer.",
-skills:"Research, mathematics, observation.",
-steps:[
-"Study Science in school.",
-"Choose a science specialisation.",
-"Complete a bachelor's degree.",
-"Complete a master's degree if required.",
-"Pursue research or a PhD.",
-"Apply to research institutions."
-]
-},
-{
-name:"Pilot",
-emoji:"✈️",
-category:"Science",
-country:"Worldwide",
-qualification:"Education and medical fitness requirements vary by licence.",
-exam:"Aviation authority examinations and flight tests.",
-salary:"Varies by airline, country and experience.",
-skills:"Decision-making, communication, concentration.",
-steps:[
-"Complete school education.",
-"Meet the aviation authority's requirements.",
-"Pass required medical examinations.",
-"Join an approved flight training programme.",
-"Complete required flying hours.",
-"Pass examinations and flight tests.",
-"Obtain the appropriate pilot licence."
-]
-},
-{
-name:"Lawyer",
-emoji:"⚖️",
-category:"Arts",
-country:"Worldwide",
-qualification:"Recognised legal education.",
-exam:"CLAT for participating Indian law universities.",
-salary:"Varies by country, organisation and experience.",
-skills:"Communication, reasoning, research.",
-steps:[
-"Complete Class 12.",
-"Choose a recognised law programme.",
-"Clear entrance requirements if applicable.",
-"Complete legal education.",
-"Meet professional registration requirements.",
-"Begin legal practice or another legal career."
-]
-},
-{
-name:"Chartered Accountant",
-emoji:"📊",
-category:"Business",
-country:"India",
-qualification:"Class 12 and ICAI course requirements.",
-exam:"CA Foundation, Intermediate and Final as applicable.",
-salary:"Varies by experience and employer.",
-skills:"Accounting, mathematics, analysis.",
-steps:[
-"Complete Class 10 and 12.",
-"Register with ICAI through an eligible route.",
-"Complete Foundation if applicable.",
-"Pass Intermediate.",
-"Complete practical training.",
-"Pass Final examinations.",
-"Meet ICAI membership requirements."
-]
-},
-{
-name:"Entrepreneur",
-emoji:"🚀",
-category:"Business",
-country:"Worldwide",
-qualification:"No single compulsory degree.",
-exam:"No universal entrance examination.",
-salary:"Business income varies and is not guaranteed.",
-skills:"Leadership, finance, creativity.",
-steps:[
-"Find a problem to solve.",
-"Research the market.",
-"Develop a business idea.",
-"Create a business plan.",
-"Learn finance and marketing.",
-"Launch your product or service.",
-"Grow your business."
-]
-},
-{
-name:"Teacher",
-emoji:"📚",
-category:"Arts",
-country:"Worldwide",
-qualification:"Relevant degree and teaching qualifications as required.",
-exam:"Depends on country and teaching level.",
-salary:"Varies by school, country and experience.",
-skills:"Communication, patience, teaching.",
-steps:[
-"Complete school education.",
-"Choose a subject.",
-"Earn the relevant degree.",
-"Complete required teacher training.",
-"Meet certification requirements.",
-"Apply to schools."
-]
-},
-{
-name:"Architect",
-emoji:"🏗️",
-category:"Science",
-country:"Worldwide",
-qualification:"Recognised architecture degree.",
-exam:"NATA or JEE Main Paper 2 in India, depending on admission.",
-salary:"Varies by country and experience.",
-skills:"Design, mathematics, creativity.",
-steps:[
-"Complete Class 12 with required subjects.",
-"Prepare for architecture entrance examinations.",
-"Join an approved architecture programme.",
-"Complete your degree.",
-"Meet professional registration requirements.",
-"Build a portfolio and gain experience."
-]
-},
-{
-name:"Cybersecurity Expert",
-emoji:"🔐",
-category:"Technology",
-country:"Worldwide",
-qualification:"Computer science education or equivalent skills.",
-exam:"No single universal examination.",
-salary:"Varies by country and experience.",
-skills:"Networking, security, programming.",
-steps:[
-"Learn computer fundamentals.",
-"Study networking.",
-"Learn operating systems.",
-"Study cybersecurity fundamentals.",
-"Practise in legal training labs.",
-"Build projects and certifications.",
-"Apply for security roles."
-]
-},
-{
-name:"Graphic Designer",
-emoji:"🎨",
-category:"Arts",
-country:"Worldwide",
-qualification:"Design degree or relevant portfolio.",
-exam:"Depends on institution.",
-salary:"Varies by experience and location.",
-skills:"Creativity, visual communication, design software.",
-steps:[
-"Learn design basics.",
-"Study colours and typography.",
-"Practise design software.",
-"Create sample designs.",
-"Build a portfolio.",
-"Apply for design opportunities."
-]
-},
-{
-name:"Astronaut",
-emoji:"🚀",
-category:"Science",
-country:"Worldwide",
-qualification:"Advanced education and specialised experience.",
-exam:"Selection requirements depend on space agency.",
-salary:"Depends on space agency and country.",
-skills:"Science, teamwork, fitness, problem-solving.",
-steps:[
-"Study Mathematics and Science.",
-"Earn a relevant advanced degree.",
-"Gain professional experience.",
-"Meet the agency's medical and other requirements.",
-"Apply when astronaut selection opens.",
-"Complete astronaut training."
-]
-}
+const careers=[
+
+["IAS Officer","Government","India","Leads district or government administration through the civil services.","UPSC Civil Services Examination; graduation is required for the exam.","Administration, leadership, public policy"],
+
+["IPS Officer","Government","India","Works in police leadership, public safety and law enforcement.","UPSC Civil Services Examination; graduation and prescribed physical standards.","Leadership, fitness, decision-making"],
+
+["IFS Officer","Government","India","Represents India in diplomacy and international relations.","UPSC Civil Services Examination; graduation.","Communication, languages, negotiation"],
+
+["Teacher","Education","Both","Helps students learn in schools and other educational settings.","Relevant degree and teacher qualification/licensing rules for the region.","Communication, patience, subject knowledge"],
+
+["Professor","Education","Both","Teaches and conducts research at colleges or universities.","Usually advanced subject qualifications; requirements vary by country.","Research, teaching, writing"],
+
+["Doctor","Medicine","Both","Diagnoses illnesses, treats patients and supports health.","Medical degree, supervised training and registration/licensing.","Science, empathy, decision-making"],
+
+["Nurse","Medicine","Both","Provides patient care and works with healthcare teams.","Recognised nursing qualification and local registration/licensing.","Care, teamwork, attention"],
+
+["Pharmacist","Medicine","Both","Prepares, checks and advises on the safe use of medicines.","Recognised pharmacy qualification and local registration.","Chemistry, accuracy, communication"],
+
+["Physiotherapist","Medicine","Both","Helps people improve movement and recover after injury or illness.","Recognised physiotherapy degree and local registration where required.","Biology, coaching, patience"],
+
+["Dentist","Medicine","Both","Prevents and treats problems involving teeth and oral health.","Dental degree, clinical training and registration/licensing.","Precision, science, communication"],
+
+["Software Developer","Engineering & Technology","Both","Builds applications, websites and software systems.","Computer science study or equivalent skills and project experience.","Coding, logic, teamwork"],
+
+["AI Engineer","Engineering & Technology","Both","Develops systems that use machine learning and artificial intelligence.","Strong computing, maths and machine-learning skills.","Maths, programming, problem-solving"],
+
+["Cybersecurity Analyst","Engineering & Technology","Both","Helps protect computers, networks and information from cyber threats.","IT/security education, practical labs and relevant certifications.","Security, analysis, curiosity"],
+
+["Data Scientist","Engineering & Technology","Both","Uses data, statistics and computing to answer questions and build models.","Statistics, programming and domain knowledge.","Maths, coding, communication"],
+
+["Civil Engineer","Engineering & Technology","Both","Plans and helps build roads, bridges, buildings and infrastructure.","Accredited engineering degree and local professional rules for some roles.","Maths, design, teamwork"],
+
+["Mechanical Engineer","Engineering & Technology","Both","Designs and improves machines, vehicles and mechanical systems.","Engineering degree or recognised technical pathway.","Physics, design, problem-solving"],
+
+["Electrical Engineer","Engineering & Technology","Both","Works with electrical systems, power and electronic equipment.","Electrical engineering education and relevant safety training.","Physics, maths, safety"],
+
+["Architect","Engineering & Technology","Both","Designs buildings and spaces for people to use.","Recognised architecture education and registration rules vary by country.","Design, drawing, spatial thinking"],
+
+["Pilot","Travel & Hospitality","Both","Flies aircraft and follows strict safety procedures.","Flight training, medical fitness and aviation authority licences.","Focus, communication, technical skill"],
+
+["Scientist","Science","Both","Investigates questions through experiments, observation and analysis.","Subject degree; research roles often require postgraduate study.","Curiosity, maths, research"],
+
+["Environmental Scientist","Science","Both","Studies environmental issues and supports conservation or sustainability.","Environmental science or related education.","Ecology, data, fieldwork"],
+
+["Biotechnologist","Science","Both","Uses biology and technology in areas such as medicine, agriculture and research.","Biotechnology or related science education.","Biology, lab skills, analysis"],
+
+["Lawyer","Law & Public Service","Both","Advises clients, researches law and may represent people in legal matters.","Law qualification and bar/licensing requirements in the region.","Reading, reasoning, speaking"],
+
+["Judge","Law & Public Service","Both","Hears cases and makes decisions according to law.","Strict country-specific legal experience and appointment requirements.","Fairness, legal knowledge, judgement"],
+
+["Police Officer","Law & Public Service","Both","Serves the public, responds to incidents and enforces laws.","Recruitment tests, training and local eligibility standards.","Fitness, integrity, communication"],
+
+["Entrepreneur","Business & Finance","Both","Starts and develops a business or organisation.","No single route; business knowledge and practical experience help.","Initiative, resilience, planning"],
+
+["Chartered Accountant","Business & Finance","India","Works in accounting, audit, taxation and financial reporting.","Professional CA qualification and required practical training in India.","Accounting, accuracy, ethics"],
+
+["Investment Analyst","Business & Finance","Both","Studies companies and markets to support investment decisions.","Finance, economics or related study; credentials may help.","Numeracy, research, judgement"],
+
+["Marketing Manager","Business & Finance","Both","Plans how products or services reach and connect with customers.","Business/marketing study or relevant experience.","Creativity, communication, analytics"],
+
+["Graphic Designer","Creative & Media","Both","Creates visual designs for brands, publications and digital products.","Portfolio and design skills; formal study can help.","Visual thinking, software, creativity"],
+
+["Animator","Creative & Media","Both","Creates moving images for films, games and digital media.","Animation skills and a strong portfolio.","Drawing, storytelling, software"],
+
+["Film Director","Creative & Media","Both","Guides the creative and practical work of making films.","No single required route; training and experience are valuable.","Leadership, storytelling, collaboration"],
+
+["Journalist","Creative & Media","Both","Researches and reports news and stories for audiences.","Journalism or related training; strong reporting portfolio.","Writing, research, ethics"],
+
+["Photographer","Creative & Media","Both","Creates photographs for news, events, art or commercial work.","Portfolio, technical practice and business skills.","Observation, composition, editing"],
+
+["Athlete","Sports","Both","Trains and competes in an individual or team sport.","Sport-specific coaching, practice and competition experience.","Discipline, fitness, teamwork"],
+
+["Sports Coach","Sports","Both","Trains athletes and helps teams improve performance.","Sport knowledge, coaching experience and relevant certifications.","Leadership, communication, analysis"],
+
+["Chef","Travel & Hospitality","Both","Plans and prepares food in restaurants, hotels or other kitchens.","Culinary training or workplace experience; food-safety training.","Creativity, teamwork, time management"],
+
+["Hotel Manager","Travel & Hospitality","Both","Oversees hotel operations and guest experiences.","Hospitality education or relevant experience.","Organisation, service, leadership"],
+
+["Psychologist","Medicine","Both","Studies behaviour and supports people through evidence-based methods.","Recognised psychology education; clinical licensing rules vary by country.","Listening, research, empathy"],
+
+["Economist","Business & Finance","Both","Studies how people, businesses and governments use resources.","Economics education; research roles often need advanced study.","Maths, analysis, writing"]
+
 ];
 
-let currentFilter = "All";
+const grid=document.getElementById('careerGrid');
 
-function showCareers() {
-  const search = document.getElementById("search")
-    .value.toLowerCase();
+function render(){
 
-  const list = document.getElementById("careerList");
-  list.innerHTML = "";
+const q=document.getElementById('search').value.toLowerCase().trim();
 
-  const filtered = careers.filter(c => {
-    const matchesSearch =
-      c.name.toLowerCase().includes(search) ||
-      c.category.toLowerCase().includes(search) ||
-      c.country.toLowerCase().includes(search);
+const cat=document.getElementById('category').value;
 
-    const matchesFilter =
-      currentFilter === "All" ||
-      c.category === currentFilter;
+const reg=document.getElementById('region').value;
 
-    return matchesSearch && matchesFilter;
-  });
+const list=careers.filter(c=>
+(cat==='All'||c[1]===cat)&&
+(reg==='All'||c[2]===reg||c[2]==='Both')&&
+c.join(' ').toLowerCase().includes(q)
+);
 
-  if(filtered.length === 0) {
-    list.innerHTML =
-      '<p class="empty">No profession found. Try another search.</p>';
-    return;
-  }
+grid.innerHTML='';
 
-  filtered.forEach(c => {
-    const index = careers.indexOf(c);
+if(!list.length){
 
-    list.innerHTML += `
-      <div class="card">
-        <div class="emoji">${c.emoji}</div>
-        <h3>${c.name}</h3>
-        <p><b>Category:</b> ${c.category}</p>
-        <p><b>Country:</b> ${c.country}</p>
-        <p>${c.qualification}</p>
-        <button class="details" onclick="showDetails(${index})">
-          Explore Career →
-        </button>
-      </div>
-    `;
-  });
+grid.innerHTML='<div class="empty">No matching professions. Try another search or category.</div>';
+
+return;
+
 }
 
-function filterCareer(category) {
-  currentFilter = category;
-  showCareers();
-  document.getElementById("detail").style.display = "none";
+list.forEach(c=>{
+
+const el=document.createElement('article');
+
+el.className='career-card';
+
+el.innerHTML=`
+<span class="tag">${c[1]}</span>
+<span class="tag">${c[2]}</span>
+<h3>${c[0]}</h3>
+<p>${c[3]}</p>
+<div class="details">
+<div><b>Pathway:</b> ${c[4]}</div>
+<div style="margin-top:6px"><b>Useful strengths:</b> ${c[5]}</div>
+</div>
+<button class="btn secondary" type="button">Copy career name</button>
+`;
+
+el.querySelector('button').addEventListener('click',()=>{
+if(navigator.clipboard){
+navigator.clipboard.writeText(c[0])
+.then(()=>alert('Copied: '+c[0]))
+.catch(()=>alert(c[0]));
+}else{
+alert(c[0]);
+}
+});
+
+grid.appendChild(el);
+
+});
+
 }
 
-function showDetails(index) {
-  const c = careers[index];
-  const detail = document.getElementById("detail");
+['search','category','region'].forEach(id=>
+document.getElementById(id).addEventListener(
+id==='search'?'input':'change',render
+)
+);
 
-  detail.style.display = "block";
+render();
 
-  detail.innerHTML = `
-    <h2>${c.emoji} ${c.name}</h2>
+document.getElementById('careerCount').textContent=careers.length+'+';
 
-    <p><b>Category:</b> ${c.category}</p>
-    <p><b>Country:</b> ${c.country}</p>
+document.querySelectorAll('.choices').forEach(group=>
 
-    <h3>🎓 Educational Qualification</h3>
-    <p>${c.qualification}</p>
+group.querySelectorAll('button').forEach(btn=>
 
-    <h3>📝 Entrance Examination</h3>
-    <p>${c.exam}</p>
+btn.addEventListener('click',()=>{
 
-    <h3>💰 Salary Information</h3>
-    <p>${c.salary}</p>
+group.querySelectorAll('button').forEach(b=>
+b.classList.remove('selected')
+);
 
-    <h3>⭐ Important Skills</h3>
-    <p>${c.skills}</p>
+btn.classList.add('selected');
 
-    <h3>🛣️ Step-by-Step Career Roadmap</h3>
-    <ul>
-      ${c.steps.map(step => `<li>${step}</li>`).join("")}
-    </ul>
+group.dataset.answer=btn.dataset.v;
 
-    <button onclick="document.getElementById('detail').style.display='none'">
-      Close
-    </button>
-  `;
+})
 
-  detail.scrollIntoView({behavior:"smooth"});
+)
+
+);
+
+document.getElementById('quizBtn').addEventListener('click',()=>{
+
+const groups=[...document.querySelectorAll('.choices')];
+
+const answers=groups.map(g=>g.dataset.answer);
+
+const result=document.getElementById('quizResult');
+
+if(answers.some(x=>!x)){
+
+result.style.display='block';
+
+result.textContent='Please choose one answer for each question first.';
+
+return;
+
 }
 
-showCareers();
+let suggestions=[];
+
+const a=answers.join(' ').toLowerCase();
+
+if(a.includes('technology')||a.includes('solving problems')||a.includes('logical'))
+suggestions.push('Software Developer','AI Engineer','Cybersecurity Analyst','Data Scientist');
+
+if(a.includes('helping people')||a.includes('empathy')||a.includes('teaching'))
+suggestions.push('Doctor','Nurse','Teacher','Psychologist');
+
+if(a.includes('creating')||a.includes('designing')||a.includes('imagination'))
+suggestions.push('Graphic Designer','Animator','Architect','Photographer');
+
+if(a.includes('leading')||a.includes('communication')||a.includes('debating'))
+suggestions.push('IAS Officer','Lawyer','Entrepreneur','Marketing Manager');
+
+if(a.includes('discovering')||a.includes('curiosity'))
+suggestions.push('Scientist','Environmental Scientist','Economist');
+
+if(a.includes('competing'))
+suggestions.push('Athlete','Sports Coach');
+
+suggestions=[...new Set(suggestions)].slice(0,6);
+
+result.style.display='block';
+
+result.innerHTML=
+'<b>Your career ideas to explore:</b><p>'+
+suggestions.join(' · ')+
+'</p><small>These are suggestions based on your choices, not a prediction. Search these careers above to learn more.</small>';
+
+});
 
 </script>
+</body>
+</html><section id="roadmap">
+<div class="eyebrow">Start step by step</div>
+<h2>A student's career roadmap</h2>
+<p class="sub">A flexible guide for school students in India and elsewhere.</p>
+<div class="steps">
 
+<div class="step">
+<strong>STEP 01 · EXPLORE</strong>
+<h3>Discover interests</h3>
+<p>Try subjects, hobbies, clubs and projects. Learn about different professions.</p>
+</div>
+
+<div class="step">
+<strong>STEP 02 · BUILD</strong>
+<h3>Strengthen basics</h3>
+<p>Focus on reading, maths, communication, digital skills and problem-solving.</p>
+</div>
+
+<div class="step">
+<strong>STEP 03 · COMPARE</strong>
+<h3>Check pathways</h3>
+<p>Compare subjects, courses, entrance exams, costs and official eligibility rules.</p>
+</div>
+
+<div class="step">
+<strong>STEP 04 · PLAN</strong>
+<h3>Take next steps</h3>
+<p>Speak to trusted adults, make a realistic study plan and review it as you grow.</p>
+</div>
+
+</div>
+</section>
+
+<section id="about">
+<div class="panel">
+<div class="eyebrow">About this project</div>
+<h2>CAREER WORLD</h2>
+<p class="sub">A student-friendly career exploration website designed to make profession information easier to discover. It is an educational guide, not an official recruitment, admissions or salary service.</p>
+<p class="note">For government jobs, university admissions and regulated professions, use the relevant official government, university or professional-body website to confirm the latest rules.</p>
+</div>
+</section>
+
+</main>
+
+<footer>
+© 2026 CAREER WORLD · Explore wisely. Dream boldly. Build steadily.
+</footer>
+
+<script>
+
+const careers=[
+
+["IAS Officer","Government","India","Leads district or government administration through the civil services.","UPSC Civil Services Examination; graduation is required for the exam.","Administration, leadership, public policy"],
+
+["IPS Officer","Government","India","Works in police leadership, public safety and law enforcement.","UPSC Civil Services Examination; graduation and prescribed physical standards.","Leadership, fitness, decision-making"],
+
+["IFS Officer","Government","India","Represents India in diplomacy and international relations.","UPSC Civil Services Examination; graduation.","Communication, languages, negotiation"],
+
+["Teacher","Education","Both","Helps students learn in schools and other educational settings.","Relevant degree and teacher qualification/licensing rules for the region.","Communication, patience, subject knowledge"],
+
+["Professor","Education","Both","Teaches and conducts research at colleges or universities.","Usually advanced subject qualifications; requirements vary by country.","Research, teaching, writing"],
+
+["Doctor","Medicine","Both","Diagnoses illnesses, treats patients and supports health.","Medical degree, supervised training and registration/licensing.","Science, empathy, decision-making"],
+
+["Nurse","Medicine","Both","Provides patient care and works with healthcare teams.","Recognised nursing qualification and local registration/licensing.","Care, teamwork, attention"],
+
+["Pharmacist","Medicine","Both","Prepares, checks and advises on the safe use of medicines.","Recognised pharmacy qualification and local registration.","Chemistry, accuracy, communication"],
+
+["Physiotherapist","Medicine","Both","Helps people improve movement and recover after injury or illness.","Recognised physiotherapy degree and local registration where required.","Biology, coaching, patience"],
+
+["Dentist","Medicine","Both","Prevents and treats problems involving teeth and oral health.","Dental degree, clinical training and registration/licensing.","Precision, science, communication"],
+
+["Software Developer","Engineering & Technology","Both","Builds applications, websites and software systems.","Computer science study or equivalent skills and project experience.","Coding, logic, teamwork"],
+
+["AI Engineer","Engineering & Technology","Both","Develops systems that use machine learning and artificial intelligence.","Strong computing, maths and machine-learning skills.","Maths, programming, problem-solving"],
+
+["Cybersecurity Analyst","Engineering & Technology","Both","Helps protect computers, networks and information from cyber threats.","IT/security education, practical labs and relevant certifications.","Security, analysis, curiosity"],
+
+["Data Scientist","Engineering & Technology","Both","Uses data, statistics and computing to answer questions and build models.","Statistics, programming and domain knowledge.","Maths, coding, communication"],
+
+["Civil Engineer","Engineering & Technology","Both","Plans and helps build roads, bridges, buildings and infrastructure.","Accredited engineering degree and local professional rules for some roles.","Maths, design, teamwork"],
+
+["Mechanical Engineer","Engineering & Technology","Both","Designs and improves machines, vehicles and mechanical systems.","Engineering degree or recognised technical pathway.","Physics, design, problem-solving"],
+
+["Electrical Engineer","Engineering & Technology","Both","Works with electrical systems, power and electronic equipment.","Electrical engineering education and relevant safety training.","Physics, maths, safety"],
+
+["Architect","Engineering & Technology","Both","Designs buildings and spaces for people to use.","Recognised architecture education and registration rules vary by country.","Design, drawing, spatial thinking"],
+
+["Pilot","Travel & Hospitality","Both","Flies aircraft and follows strict safety procedures.","Flight training, medical fitness and aviation authority licences.","Focus, communication, technical skill"],
+
+["Scientist","Science","Both","Investigates questions through experiments, observation and analysis.","Subject degree; research roles often require postgraduate study.","Curiosity, maths, research"],
+
+["Environmental Scientist","Science","Both","Studies environmental issues and supports conservation or sustainability.","Environmental science or related education.","Ecology, data, fieldwork"],
+
+["Biotechnologist","Science","Both","Uses biology and technology in areas such as medicine, agriculture and research.","Biotechnology or related science education.","Biology, lab skills, analysis"],
+
+["Lawyer","Law & Public Service","Both","Advises clients, researches law and may represent people in legal matters.","Law qualification and bar/licensing requirements in the region.","Reading, reasoning, speaking"],
+
+["Judge","Law & Public Service","Both","Hears cases and makes decisions according to law.","Strict country-specific legal experience and appointment requirements.","Fairness, legal knowledge, judgement"],
+
+["Police Officer","Law & Public Service","Both","Serves the public, responds to incidents and enforces laws.","Recruitment tests, training and local eligibility standards.","Fitness, integrity, communication"],
+
+["Entrepreneur","Business & Finance","Both","Starts and develops a business or organisation.","No single route; business knowledge and practical experience help.","Initiative, resilience, planning"],
+
+["Chartered Accountant","Business & Finance","India","Works in accounting, audit, taxation and financial reporting.","Professional CA qualification and required practical training in India.","Accounting, accuracy, ethics"],
+
+["Investment Analyst","Business & Finance","Both","Studies companies and markets to support investment decisions.","Finance, economics or related study; credentials may help.","Numeracy, research, judgement"],
+
+["Marketing Manager","Business & Finance","Both","Plans how products or services reach and connect with customers.","Business/marketing study or relevant experience.","Creativity, communication, analytics"],
+
+["Graphic Designer","Creative & Media","Both","Creates visual designs for brands, publications and digital products.","Portfolio and design skills; formal study can help.","Visual thinking, software, creativity"],
+
+["Animator","Creative & Media","Both","Creates moving images for films, games and digital media.","Animation skills and a strong portfolio.","Drawing, storytelling, software"],
+
+["Film Director","Creative & Media","Both","Guides the creative and practical work of making films.","No single required route; training and experience are valuable.","Leadership, storytelling, collaboration"],
+
+["Journalist","Creative & Media","Both","Researches and reports news and stories for audiences.","Journalism or related training; strong reporting portfolio.","Writing, research, ethics"],
+
+["Photographer","Creative & Media","Both","Creates photographs for news, events, art or commercial work.","Portfolio, technical practice and business skills.","Observation, composition, editing"],
+
+["Athlete","Sports","Both","Trains and competes in an individual or team sport.","Sport-specific coaching, practice and competition experience.","Discipline, fitness, teamwork"],
+
+["Sports Coach","Sports","Both","Trains athletes and helps teams improve performance.","Sport knowledge, coaching experience and relevant certifications.","Leadership, communication, analysis"],
+
+["Chef","Travel & Hospitality","Both","Plans and prepares food in restaurants, hotels or other kitchens.","Culinary training or workplace experience; food-safety training.","Creativity, teamwork, time management"],
+
+["Hotel Manager","Travel & Hospitality","Both","Oversees hotel operations and guest experiences.","Hospitality education or relevant experience.","Organisation, service, leadership"],
+
+["Psychologist","Medicine","Both","Studies behaviour and supports people through evidence-based methods.","Recognised psychology education; clinical licensing rules vary by country.","Listening, research, empathy"],
+
+["Economist","Business & Finance","Both","Studies how people, businesses and governments use resources.","Economics education; research roles often need advanced study.","Maths, analysis, writing"]
+
+];
+
+const grid=document.getElementById('careerGrid');
+
+function render(){
+
+const q=document.getElementById('search').value.toLowerCase().trim();
+
+const cat=document.getElementById('category').value;
+
+const reg=document.getElementById('region').value;
+
+const list=careers.filter(c=>
+(cat==='All'||c[1]===cat)&&
+(reg==='All'||c[2]===reg||c[2]==='Both')&&
+c.join(' ').toLowerCase().includes(q)
+);
+
+grid.innerHTML='';
+
+if(!list.length){
+
+grid.innerHTML='<div class="empty">No matching professions. Try another search or category.</div>';
+
+return;
+
+}
+
+list.forEach(c=>{
+
+const el=document.createElement('article');
+
+el.className='career-card';
+
+el.innerHTML=`
+<span class="tag">${c[1]}</span>
+<span class="tag">${c[2]}</span>
+<h3>${c[0]}</h3>
+<p>${c[3]}</p>
+<div class="details">
+<div><b>Pathway:</b> ${c[4]}</div>
+<div style="margin-top:6px"><b>Useful strengths:</b> ${c[5]}</div>
+</div>
+<button class="btn secondary" type="button">Copy career name</button>
+`;
+
+el.querySelector('button').addEventListener('click',()=>{
+if(navigator.clipboard){
+navigator.clipboard.writeText(c[0])
+.then(()=>alert('Copied: '+c[0]))
+.catch(()=>alert(c[0]));
+}else{
+alert(c[0]);
+}
+});
+
+grid.appendChild(el);
+
+});
+
+}
+
+['search','category','region'].forEach(id=>
+document.getElementById(id).addEventListener(
+id==='search'?'input':'change',render
+)
+);
+
+render();
+
+document.getElementById('careerCount').textContent=careers.length+'+';
+
+document.querySelectorAll('.choices').forEach(group=>
+
+group.querySelectorAll('button').forEach(btn=>
+
+btn.addEventListener('click',()=>{
+
+group.querySelectorAll('button').forEach(b=>
+b.classList.remove('selected')
+);
+
+btn.classList.add('selected');
+
+group.dataset.answer=btn.dataset.v;
+
+})
+
+)
+
+);
+
+document.getElementById('quizBtn').addEventListener('click',()=>{
+
+const groups=[...document.querySelectorAll('.choices')];
+
+const answers=groups.map(g=>g.dataset.answer);
+
+const result=document.getElementById('quizResult');
+
+if(answers.some(x=>!x)){
+
+result.style.display='block';
+
+result.textContent='Please choose one answer for each question first.';
+
+return;
+
+}
+
+let suggestions=[];
+
+const a=answers.join(' ').toLowerCase();
+
+if(a.includes('technology')||a.includes('solving problems')||a.includes('logical'))
+suggestions.push('Software Developer','AI Engineer','Cybersecurity Analyst','Data Scientist');
+
+if(a.includes('helping people')||a.includes('empathy')||a.includes('teaching'))
+suggestions.push('Doctor','Nurse','Teacher','Psychologist');
+
+if(a.includes('creating')||a.includes('designing')||a.includes('imagination'))
+suggestions.push('Graphic Designer','Animator','Architect','Photographer');
+
+if(a.includes('leading')||a.includes('communication')||a.includes('debating'))
+suggestions.push('IAS Officer','Lawyer','Entrepreneur','Marketing Manager');
+
+if(a.includes('discovering')||a.includes('curiosity'))
+suggestions.push('Scientist','Environmental Scientist','Economist');
+
+if(a.includes('competing'))
+suggestions.push('Athlete','Sports Coach');
+
+suggestions=[...new Set(suggestions)].slice(0,6);
+
+result.style.display='block';
+
+result.innerHTML=
+'<b>Your career ideas to explore:</b><p>'+
+suggestions.join(' · ')+
+'</p><small>These are suggestions based on your choices, not a prediction. Search these careers above to learn more.</small>';
+
+});
+
+</script>
 </body>
 </html>
