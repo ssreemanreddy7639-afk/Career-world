@@ -1,0 +1,632 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CAREER WORLD</title>
+
+<style>
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #081426;
+  color: white;
+}
+
+header {
+  background: linear-gradient(120deg,#0759c7,#792de2);
+  padding: 28px 16px;
+  text-align: center;
+}
+
+header h1 {
+  font-size: 32px;
+  letter-spacing: 2px;
+}
+
+header p {
+  margin-top: 10px;
+  color: #e0eaff;
+}
+
+nav {
+  background: #102440;
+  padding: 15px;
+  text-align: center;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  margin: 10px;
+  font-weight: bold;
+}
+
+.hero {
+  text-align: center;
+  padding: 45px 15px;
+}
+
+.hero h2 {
+  font-size: 30px;
+  color: #61b5ff;
+}
+
+.hero p {
+  margin: 15px auto;
+  max-width: 600px;
+  color: #c4d4e9;
+  line-height: 1.6;
+}
+
+.search {
+  width: 90%;
+  max-width: 600px;
+  padding: 15px;
+  border-radius: 12px;
+  border: 2px solid #318bff;
+  margin: 20px auto;
+  display: block;
+  font-size: 16px;
+}
+
+.filters {
+  text-align: center;
+  margin: 10px;
+}
+
+button {
+  background: #1677ee;
+  color: white;
+  border: none;
+  padding: 11px 17px;
+  border-radius: 8px;
+  margin: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #7648ed;
+}
+
+main {
+  padding: 15px;
+}
+
+.section-title {
+  text-align: center;
+  color: #61b5ff;
+  margin: 25px 0;
+}
+
+.careers {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(230px,1fr));
+  gap: 17px;
+  max-width: 1100px;
+  margin: auto;
+}
+
+.card {
+  background: #142944;
+  border: 1px solid #284769;
+  padding: 20px;
+  border-radius: 14px;
+  transition: 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  border-color: #399cff;
+}
+
+.card .emoji {
+  font-size: 35px;
+}
+
+.card h3 {
+  margin: 12px 0;
+  color: #70baff;
+}
+
+.card p {
+  color: #d0dcec;
+  line-height: 1.5;
+  font-size: 14px;
+}
+
+.details {
+  margin-top: 15px;
+  width: 100%;
+}
+
+#detail {
+  display: none;
+  background: #142944;
+  border: 1px solid #399cff;
+  border-radius: 15px;
+  padding: 23px;
+  max-width: 850px;
+  margin: 30px auto;
+  line-height: 1.8;
+}
+
+#detail h2 {
+  color: #70baff;
+  margin-bottom: 12px;
+}
+
+#detail h3 {
+  color: #70baff;
+  margin-top: 18px;
+}
+
+#detail ul {
+  padding-left: 23px;
+}
+
+#detail p {
+  color: #d0dcec;
+}
+
+footer {
+  text-align: center;
+  background: #102440;
+  padding: 25px;
+  margin-top: 45px;
+  color: #b8cbe1;
+}
+
+.empty {
+  text-align: center;
+  color: #ffb8b8;
+  padding: 25px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>🌍 CAREER WORLD</h1>
+  <p>Explore Every Profession. Discover Your Future.</p>
+</header>
+
+<nav>
+  <a href="#home">Home</a>
+  <a href="#careers">Careers</a>
+  <a href="#about">About</a>
+</nav>
+
+<section class="hero" id="home">
+  <h2>Your Future Starts Here!</h2>
+  <p>
+    Discover professions from India and around the world.
+    Learn about qualifications, skills, salaries and
+    step-by-step career pathways.
+  </p>
+
+  <input
+    class="search"
+    id="search"
+    type="text"
+    placeholder="🔍 Search any profession..."
+    oninput="showCareers()"
+  />
+
+  <div class="filters">
+    <button onclick="filterCareer('All')">All</button>
+    <button onclick="filterCareer('Government')">Government</button>
+    <button onclick="filterCareer('Science')">Science</button>
+    <button onclick="filterCareer('Technology')">Technology</button>
+    <button onclick="filterCareer('Business')">Business</button>
+    <button onclick="filterCareer('Arts')">Arts</button>
+  </div>
+</section>
+
+<main id="careers">
+  <h2 class="section-title">🚀 Explore Professions</h2>
+  <div class="careers" id="careerList"></div>
+  <div id="detail"></div>
+</main>
+
+<section id="about">
+  <h2 class="section-title">About CAREER WORLD</h2>
+  <p style="text-align:center;padding:15px;line-height:1.8;color:#c4d4e9">
+    CAREER WORLD is a career exploration platform
+    designed to help students discover their interests
+    and understand different career opportunities.
+  </p>
+</section>
+
+<footer>
+  <h3>🌍 CAREER WORLD</h3>
+  <p>Explore Today. Lead Tomorrow.</p>
+  <p>© 2026 CAREER WORLD</p>
+</footer>
+
+<script>
+
+const careers = [
+{
+name:"IAS Officer",
+emoji:"🏛️",
+category:"Government",
+country:"India",
+qualification:"Any recognised bachelor's degree.",
+exam:"UPSC Civil Services Examination.",
+salary:"Pay Level 10 starts at ₹56,100 basic monthly pay.",
+skills:"Leadership, administration, decision-making.",
+steps:[
+"Complete Class 10.",
+"Complete Class 12 in any stream.",
+"Earn a bachelor's degree.",
+"Meet UPSC eligibility requirements.",
+"Prepare for the UPSC Civil Services Examination.",
+"Clear Prelims, Mains and Interview.",
+"Complete training at LBSNAA."
+]
+},
+{
+name:"IPS Officer",
+emoji:"👮",
+category:"Government",
+country:"India",
+qualification:"Bachelor's degree.",
+exam:"UPSC Civil Services Examination.",
+salary:"Pay Level 10 starts at ₹56,100 basic monthly pay.",
+skills:"Leadership, discipline, courage.",
+steps:[
+"Complete Class 10 and 12.",
+"Complete graduation.",
+"Prepare for UPSC.",
+"Clear Prelims.",
+"Clear Mains.",
+"Pass the Interview and meet physical standards.",
+"Complete police training."
+]
+},
+{
+name:"Doctor",
+emoji:"🩺",
+category:"Science",
+country:"Worldwide",
+qualification:"PCB in Class 11 and 12, followed by medical education.",
+exam:"NEET-UG in India.",
+salary:"Varies by country, specialisation and experience.",
+skills:"Communication, science, compassion.",
+steps:[
+"Study Science with Physics, Chemistry and Biology.",
+"Prepare for medical entrance requirements.",
+"Qualify NEET-UG in India.",
+"Complete MBBS.",
+"Complete internship.",
+"Obtain registration and required qualifications.",
+"Specialise if desired."
+]
+},
+{
+name:"Engineer",
+emoji:"⚙️",
+category:"Science",
+country:"Worldwide",
+qualification:"Usually Class 12 with Physics and Mathematics.",
+exam:"JEE or other accepted entrance examinations in India.",
+salary:"Varies by engineering branch and experience.",
+skills:"Mathematics, problem-solving, creativity.",
+steps:[
+"Complete Class 10.",
+"Choose Science with Mathematics.",
+"Study Physics, Chemistry and Mathematics.",
+"Prepare for entrance examinations.",
+"Complete an engineering degree.",
+"Develop practical skills.",
+"Apply for engineering jobs."
+]
+},
+{
+name:"Software Developer",
+emoji:"💻",
+category:"Technology",
+country:"Worldwide",
+qualification:"Computer Science degree or relevant skills.",
+exam:"No single compulsory worldwide examination.",
+salary:"Varies by country, company and experience.",
+skills:"Programming, logic, problem-solving.",
+steps:[
+"Learn computer basics.",
+"Learn Python or JavaScript.",
+"Study programming concepts.",
+"Learn data structures and algorithms.",
+"Build projects.",
+"Create a portfolio.",
+"Apply for developer jobs."
+]
+},
+{
+name:"Scientist",
+emoji:"🔬",
+category:"Science",
+country:"Worldwide",
+qualification:"Relevant science degree; higher research qualifications often needed.",
+exam:"Depends on institution and country.",
+salary:"Depends on research field and employer.",
+skills:"Research, mathematics, observation.",
+steps:[
+"Study Science in school.",
+"Choose a science specialisation.",
+"Complete a bachelor's degree.",
+"Complete a master's degree if required.",
+"Pursue research or a PhD.",
+"Apply to research institutions."
+]
+},
+{
+name:"Pilot",
+emoji:"✈️",
+category:"Science",
+country:"Worldwide",
+qualification:"Education and medical fitness requirements vary by licence.",
+exam:"Aviation authority examinations and flight tests.",
+salary:"Varies by airline, country and experience.",
+skills:"Decision-making, communication, concentration.",
+steps:[
+"Complete school education.",
+"Meet the aviation authority's requirements.",
+"Pass required medical examinations.",
+"Join an approved flight training programme.",
+"Complete required flying hours.",
+"Pass examinations and flight tests.",
+"Obtain the appropriate pilot licence."
+]
+},
+{
+name:"Lawyer",
+emoji:"⚖️",
+category:"Arts",
+country:"Worldwide",
+qualification:"Recognised legal education.",
+exam:"CLAT for participating Indian law universities.",
+salary:"Varies by country, organisation and experience.",
+skills:"Communication, reasoning, research.",
+steps:[
+"Complete Class 12.",
+"Choose a recognised law programme.",
+"Clear entrance requirements if applicable.",
+"Complete legal education.",
+"Meet professional registration requirements.",
+"Begin legal practice or another legal career."
+]
+},
+{
+name:"Chartered Accountant",
+emoji:"📊",
+category:"Business",
+country:"India",
+qualification:"Class 12 and ICAI course requirements.",
+exam:"CA Foundation, Intermediate and Final as applicable.",
+salary:"Varies by experience and employer.",
+skills:"Accounting, mathematics, analysis.",
+steps:[
+"Complete Class 10 and 12.",
+"Register with ICAI through an eligible route.",
+"Complete Foundation if applicable.",
+"Pass Intermediate.",
+"Complete practical training.",
+"Pass Final examinations.",
+"Meet ICAI membership requirements."
+]
+},
+{
+name:"Entrepreneur",
+emoji:"🚀",
+category:"Business",
+country:"Worldwide",
+qualification:"No single compulsory degree.",
+exam:"No universal entrance examination.",
+salary:"Business income varies and is not guaranteed.",
+skills:"Leadership, finance, creativity.",
+steps:[
+"Find a problem to solve.",
+"Research the market.",
+"Develop a business idea.",
+"Create a business plan.",
+"Learn finance and marketing.",
+"Launch your product or service.",
+"Grow your business."
+]
+},
+{
+name:"Teacher",
+emoji:"📚",
+category:"Arts",
+country:"Worldwide",
+qualification:"Relevant degree and teaching qualifications as required.",
+exam:"Depends on country and teaching level.",
+salary:"Varies by school, country and experience.",
+skills:"Communication, patience, teaching.",
+steps:[
+"Complete school education.",
+"Choose a subject.",
+"Earn the relevant degree.",
+"Complete required teacher training.",
+"Meet certification requirements.",
+"Apply to schools."
+]
+},
+{
+name:"Architect",
+emoji:"🏗️",
+category:"Science",
+country:"Worldwide",
+qualification:"Recognised architecture degree.",
+exam:"NATA or JEE Main Paper 2 in India, depending on admission.",
+salary:"Varies by country and experience.",
+skills:"Design, mathematics, creativity.",
+steps:[
+"Complete Class 12 with required subjects.",
+"Prepare for architecture entrance examinations.",
+"Join an approved architecture programme.",
+"Complete your degree.",
+"Meet professional registration requirements.",
+"Build a portfolio and gain experience."
+]
+},
+{
+name:"Cybersecurity Expert",
+emoji:"🔐",
+category:"Technology",
+country:"Worldwide",
+qualification:"Computer science education or equivalent skills.",
+exam:"No single universal examination.",
+salary:"Varies by country and experience.",
+skills:"Networking, security, programming.",
+steps:[
+"Learn computer fundamentals.",
+"Study networking.",
+"Learn operating systems.",
+"Study cybersecurity fundamentals.",
+"Practise in legal training labs.",
+"Build projects and certifications.",
+"Apply for security roles."
+]
+},
+{
+name:"Graphic Designer",
+emoji:"🎨",
+category:"Arts",
+country:"Worldwide",
+qualification:"Design degree or relevant portfolio.",
+exam:"Depends on institution.",
+salary:"Varies by experience and location.",
+skills:"Creativity, visual communication, design software.",
+steps:[
+"Learn design basics.",
+"Study colours and typography.",
+"Practise design software.",
+"Create sample designs.",
+"Build a portfolio.",
+"Apply for design opportunities."
+]
+},
+{
+name:"Astronaut",
+emoji:"🚀",
+category:"Science",
+country:"Worldwide",
+qualification:"Advanced education and specialised experience.",
+exam:"Selection requirements depend on space agency.",
+salary:"Depends on space agency and country.",
+skills:"Science, teamwork, fitness, problem-solving.",
+steps:[
+"Study Mathematics and Science.",
+"Earn a relevant advanced degree.",
+"Gain professional experience.",
+"Meet the agency's medical and other requirements.",
+"Apply when astronaut selection opens.",
+"Complete astronaut training."
+]
+}
+];
+
+let currentFilter = "All";
+
+function showCareers() {
+  const search = document.getElementById("search")
+    .value.toLowerCase();
+
+  const list = document.getElementById("careerList");
+  list.innerHTML = "";
+
+  const filtered = careers.filter(c => {
+    const matchesSearch =
+      c.name.toLowerCase().includes(search) ||
+      c.category.toLowerCase().includes(search) ||
+      c.country.toLowerCase().includes(search);
+
+    const matchesFilter =
+      currentFilter === "All" ||
+      c.category === currentFilter;
+
+    return matchesSearch && matchesFilter;
+  });
+
+  if(filtered.length === 0) {
+    list.innerHTML =
+      '<p class="empty">No profession found. Try another search.</p>';
+    return;
+  }
+
+  filtered.forEach(c => {
+    const index = careers.indexOf(c);
+
+    list.innerHTML += `
+      <div class="card">
+        <div class="emoji">${c.emoji}</div>
+        <h3>${c.name}</h3>
+        <p><b>Category:</b> ${c.category}</p>
+        <p><b>Country:</b> ${c.country}</p>
+        <p>${c.qualification}</p>
+        <button class="details" onclick="showDetails(${index})">
+          Explore Career →
+        </button>
+      </div>
+    `;
+  });
+}
+
+function filterCareer(category) {
+  currentFilter = category;
+  showCareers();
+  document.getElementById("detail").style.display = "none";
+}
+
+function showDetails(index) {
+  const c = careers[index];
+  const detail = document.getElementById("detail");
+
+  detail.style.display = "block";
+
+  detail.innerHTML = `
+    <h2>${c.emoji} ${c.name}</h2>
+
+    <p><b>Category:</b> ${c.category}</p>
+    <p><b>Country:</b> ${c.country}</p>
+
+    <h3>🎓 Educational Qualification</h3>
+    <p>${c.qualification}</p>
+
+    <h3>📝 Entrance Examination</h3>
+    <p>${c.exam}</p>
+
+    <h3>💰 Salary Information</h3>
+    <p>${c.salary}</p>
+
+    <h3>⭐ Important Skills</h3>
+    <p>${c.skills}</p>
+
+    <h3>🛣️ Step-by-Step Career Roadmap</h3>
+    <ul>
+      ${c.steps.map(step => `<li>${step}</li>`).join("")}
+    </ul>
+
+    <button onclick="document.getElementById('detail').style.display='none'">
+      Close
+    </button>
+  `;
+
+  detail.scrollIntoView({behavior:"smooth"});
+}
+
+showCareers();
+
+</script>
+
+</body>
+</html>
